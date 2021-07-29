@@ -7,6 +7,8 @@ AFRAME.registerComponent('modelviewer', {
     title: {default: ''},
     uploadUIEnabled: {default: true},
   },
+
+  //initialize the scene and the controllers
   init: function () {
     var el = this.el;
 
@@ -25,8 +27,6 @@ AFRAME.registerComponent('modelviewer', {
     this.onTouchMove = this.onTouchMove.bind(this);
     this.onTouchEnd = this.onTouchEnd.bind(this);
 
-    this.submitURLButtonClicked = this.submitURLButtonClicked.bind(this);
-
     this.onThumbstickMoved = this.onThumbstickMoved.bind(this);
 
     this.onEnterVR = this.onEnterVR.bind(this);
@@ -41,7 +41,7 @@ AFRAME.registerComponent('modelviewer', {
     this.initEntities();
     this.initBackground();
 
-    if (this.data.uploadUIEnabled) { this.initUploadInput(); }
+    if (this.data.uploadUIEnabled) { this.initModel(); }
 
     // Disable context menu on canvas when pressing mouse right button;
     this.el.sceneEl.canvas.oncontextmenu = function (evt) { evt.preventDefault(); };
@@ -72,9 +72,9 @@ AFRAME.registerComponent('modelviewer', {
 
   },
 
-  initUploadInput: function () {
+  initModel: function () {
     
-    // Function that chage the material of the bag
+    // Function that change the material of the bag
     // part : Outside, Ornements, Hance1 
     // id : id of the material in the Database
     // texture : path of the image texture
@@ -101,6 +101,7 @@ AFRAME.registerComponent('modelviewer', {
       })
     }
 
+    //first material change to compute the first scores
     changeMaterial("Outside", 1, "images/Outside/Texture_1_baseColor.jpeg");
     changeMaterial("Ornements", 9,"images/Ornements/gold.jpg");
     changeMaterial("Hance1", 13, "images/Outside/Texture_1_baseColor.jpeg");
@@ -173,9 +174,7 @@ AFRAME.registerComponent('modelviewer', {
       '.a-upload-model {display: none}}'+
       
       '.a-edit-button-container {position: absolute; top: 25px; right: 20px;}'+
-      //'.a-edit-container {position: absolute; top: 200px; right: 20px; width: fit-content; height: fit-content ; background-color: white;padding-top: 15px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px; }'+
       '.a-edit-container {height: 100%; width: 0; position: fixed; z-index: 1; top: 0; right: 0; background: rgb(17, 17, 17,0.8); overflow-x: hidden; transition: 0.5s; padding-top: 30px;}'+
-      //'.a-edit-container.hidden {display: none}'+
       '.a-edit-container.hidden {width: 25%}'+
       '@media only screen and (max-width: 700px) {' +
       '.a-edit-container.hidden {width: 100%}}'+
@@ -196,10 +195,6 @@ AFRAME.registerComponent('modelviewer', {
       css += '@media only screen and (max-width: 800px) {' +
       '.a-upload-model-input {width: 60%;}}';
     }
-
-    //scoreContainer.classList.add('a-score');
-    //scoreContainer.innerText = "Score :";
-    //scoreContainer.innerText = this.data.ScoreHtml.data;
 
     uploadContainerEl.classList.add('a-upload-model');
     if (style.styleSheet) {
@@ -263,7 +258,6 @@ AFRAME.registerComponent('modelviewer', {
     editButton.classList.add('a-edit-button');
     editButton.innerHTML = " Customize";
     editButton.addEventListener('click', function () {
-      //console.log("hidden");
       
       if (editContainer.classList.contains('hidden')) {
         editContainer.classList.remove('hidden');
@@ -280,7 +274,6 @@ AFRAME.registerComponent('modelviewer', {
 
     editCloseButton.classList.add('a-edit-close-button');
     editCloseButton.addEventListener('click', function () {
-      //console.log("hidden");
       
       if (editContainer.classList.contains('hidden')) {
         editContainer.classList.remove('hidden');
@@ -303,9 +296,6 @@ AFRAME.registerComponent('modelviewer', {
       uploadContainerEl.classList.remove('hidden');
     });
 
-    //inputEl.value = inputDefaultValue;
-
-    //uploadContainerEl.appendChild(inputEl);
     editButtonContainer.appendChild(editButton);
     
     editContainer.appendChild(editTitle);
@@ -341,22 +331,6 @@ AFRAME.registerComponent('modelviewer', {
     this.modelEl.setAttribute('gltf-model', this.data.gltfModel);
   },
 
-  submitURLButtonClicked: function (color) {
-    /*var modelURL = this.inputEl.value;
-    if (modelURL === this.inputDefaultValue) { return; }
-    this.el.setAttribute('model-viewer', 'gltfModel', modelURL);*/
-    console.log(color); 
-    
-    this.modelEl.object3D.traverse(function(object3D){
-      var mat = object3D.material
-      if (mat) {
-        console.log("mat : " + object3D.material);
-        if (object3D.name == "Cube")
-          object3D.material = new THREE.MeshStandardMaterial({color: 0x000000});
-      }
-    })
-  },
-
   initCameraRig: function () {
     var cameraRigEl = this.cameraRigEl = document.createElement('a-entity');
     var cameraEl = this.cameraEl = document.createElement('a-entity');
@@ -389,14 +363,6 @@ AFRAME.registerComponent('modelviewer', {
 
   initBackground: function () {
     var backgroundEl = this.backgroundEl = document.querySelector('a-entity');
-    //backgroundEl.setAttribute('geometry', {primitive: 'sphere', radius: 65});
-    /*backgroundEl.setAttribute('material', {
-      shader: 'background-gradient',
-      colorTop: '#37383c',
-      colorBottom: '#757575',
-      side: 'back'
-    });*/
-    //backgroundEl.setAttribute('material', 'images/background/Luxury-Backgrounds-4.jpg');
     backgroundEl.setAttribute('hide-on-enter-ar', '');
   },
 

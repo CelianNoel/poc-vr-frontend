@@ -108,6 +108,7 @@ AFRAME.registerComponent('envscore', {
         }
     },
   
+    //create the social score button to open the pop up
     createScoresButton: function (onClick) {
       
       var wrapper;
@@ -130,6 +131,8 @@ AFRAME.registerComponent('envscore', {
       this.el.sceneEl.appendChild(wrapper);
     },
 
+    //Update the envirenmental score when a material is changed 
+    //id: material id
     updateScore: function (id) {
 
       var score = document.querySelector('.env-score-1');
@@ -168,6 +171,7 @@ AFRAME.registerComponent('envscore', {
         });
     },
 
+    //Display the envirenmental score details
     getDataDetails: function(){
       
       var detailsButton = document.querySelector('.detailsButton');

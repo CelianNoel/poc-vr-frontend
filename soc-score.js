@@ -4,6 +4,7 @@ AFRAME.registerComponent('socscore', {
       htmlSrc: {type: 'selector'},
       startOpened: {default: false}
     },
+    //initialize scene and social score functions and variables
     init: function () {
 
       var sceneEl = this.el.sceneEl;
@@ -30,7 +31,7 @@ AFRAME.registerComponent('socscore', {
 
       var loadValue = true;
     },
-  
+    
     update: function () {
       var messageEl = this.messageEl;
       messageEl.innerHTML = this.data.htmlSrc.data;
@@ -40,7 +41,7 @@ AFRAME.registerComponent('socscore', {
       detailsButton.addEventListener('click', this.getDataDetails);
  
     },
-  
+    
     addStyles: function () {
       var css =
         '.a-soc-score-pop-up{border-radius: 25px; position: absolute; width: 400px;' +
@@ -83,7 +84,8 @@ AFRAME.registerComponent('socscore', {
   
       document.getElementsByTagName('head')[0].appendChild(style);
     },
-  
+    
+    //Display the social score pop up
     toggleInfoMessage: function () {
       var display = this.messageEl.style.display;
       var envScoreButton = document.querySelector('.a-score-pop-up');
@@ -97,6 +99,7 @@ AFRAME.registerComponent('socscore', {
       }
     },
   
+    //create the social score button to open the pop up
     createScoresButton: function (onClick) {
       var socButton;
       var wrapper;    
@@ -116,6 +119,8 @@ AFRAME.registerComponent('socscore', {
       this.el.sceneEl.appendChild(wrapper);
     },
 
+    //Update the social score when a material is changed 
+    //id: material id
     updateScore: function (id) {
 
       var score = document.querySelector('.soc-score-1');
@@ -149,6 +154,7 @@ AFRAME.registerComponent('socscore', {
         });
       },
 
+      //Display the social score details
       getDataDetails: function(){
       
         var detailsButton = document.querySelector('.detailsSocialButton');
@@ -177,11 +183,9 @@ AFRAME.registerComponent('socscore', {
           });
         }
       
-  
         var workingCondition = document.querySelector('.workingConditionValue');
         var animalTreatement = document.querySelector('.animalTreatementValue');
 
-  
         var url = "https://serene-headland-54515.herokuapp.com/materials/"
         fetch(url)
           .then((resp) => resp.json())
