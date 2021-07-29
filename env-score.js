@@ -5,6 +5,7 @@ AFRAME.registerComponent('envscore', {
       startOpened: {default: false},
       totalScore: {type: 'int', default: 0}
     },
+    //initialize scene and environmental score functions and variables
     init: function () {
 
       var sceneEl = this.el.sceneEl;
@@ -95,20 +96,21 @@ AFRAME.registerComponent('envscore', {
       this.messageEl.style.display = 'none';
   },
 
-    toggleInfoMessage: function () {
-        var display = this.messageEl.style.display;
-        var socScoreButton = document.querySelector('.a-soc-score-pop-up');
-        if (display == 'none' && socScoreButton.style.display == '') {
-          this.messageEl.style.display = '';
-          socScoreButton.style.display = 'none';
-        }
-        else {
-          display = display === 'none' ? '' : 'none';
-          this.messageEl.style.display = display;
-        }
-    },
+  //Display the environmental score pop up
+  toggleInfoMessage: function () {
+      var display = this.messageEl.style.display;
+      var socScoreButton = document.querySelector('.a-soc-score-pop-up');
+      if (display == 'none' && socScoreButton.style.display == '') {
+        this.messageEl.style.display = '';
+        socScoreButton.style.display = 'none';
+      }
+      else {
+        display = display === 'none' ? '' : 'none';
+        this.messageEl.style.display = display;
+      }
+  },
   
-    //create the social score button to open the pop up
+    //create the environmental score button to open the pop up
     createScoresButton: function (onClick) {
       
       var wrapper;
@@ -131,7 +133,7 @@ AFRAME.registerComponent('envscore', {
       this.el.sceneEl.appendChild(wrapper);
     },
 
-    //Update the envirenmental score when a material is changed 
+    //Update the environmental score when a material is changed 
     //id: material id
     updateScore: function (id) {
 
@@ -171,7 +173,7 @@ AFRAME.registerComponent('envscore', {
         });
     },
 
-    //Display the envirenmental score details
+    //Display the environmental score details
     getDataDetails: function(){
       
       var detailsButton = document.querySelector('.detailsButton');
