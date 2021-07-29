@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+</head>
+<body>
+  <div class="score-general">
+    <div class="env-score-title">
+      Environmental Impact
+    </div>
+    <svg
+      class="progress-ring"
+      width="200"
+      height="200">
+      <circle
+        class="progress-ring__circle"
+        stroke="#92d050"
+        stroke-width="10"
+        fill="transparent"
+        r="65"
+        cx="100"
+        cy="100"/>
+    </svg>
+    <div class="env-score">
+      <div class="env-score-1">
+        0
+      </div>
+      <div class="env-score-2">
+        /100
+      </div>
+    </div>
+    <div class="score-details">
+      <table style="width:100%">
+        <tr>
+          <td>
+            <i class="fas fa-smog" style="color: grey;"></i>
+          </td>
+          <td>Air pollution</td>
+          <td class="airPollution E-score" style="font-weight: bold;">0 /100</td>
+          <td class="airPollutionValue E-value" ></td>
+        </tr>
+        <tr >
+          <td>
+            <i class="fas fa-cloud-sun" style="color: yellowgreen;"></i>
+          </td>
+          <td>Green house gazes</td>
+          <td class="ghg E-score" style="font-weight: bold;">0 /100</td>
+          <td class="ghgValue E-value" ></td>
+        </tr>
+        <tr >
+          <td>
+            <i class="fas fa-tractor" style="color: brown;"></i>
+          </td>
+          <td>Land use</td>
+          <td class="landUse E-score" style="font-weight: bold;">0 /100</td>
+          <td class="landUseValue E-value" ></td>
+        </tr>
+        <tr >
+          <td>
+            <i class="fas fa-trash-alt" style="color: purple;"></i>
+          </td>
+          <td>Waste</td>
+          <td class="waste E-score" style="font-weight: bold;">0 /100</td>
+          <td class="wasteValue E-value" ></td>
+        </tr>
+        <tr >
+          <td>
+            <i class="fas fa-faucet" style="color: skyblue;"></i>
+          </td>
+          <td>Water comsuption</td>
+          <td class="waterConsumption E-score" style="font-weight: bold;">0 /100</td>
+          <td class="waterConsumptionValue E-value" ></td>
+        </tr>
+        <tr >
+          <td>
+            <i class="fas fa-tint-slash" style="color: blue;"></i>
+          </td>
+          <td>Water pollution</td>
+          <td class="waterPollution E-score" style="font-weight: bold;">0 /100</td>
+          <td class="waterPollutionValue E-value" ></td>
+        </tr>   
+      </table>
+    </div>
+    <button class="detailsButton">Display values</button>
+  </div>
+</body>
+</html>

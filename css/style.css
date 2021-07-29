@@ -1,0 +1,206 @@
+.aframebox {
+    height: 500px;
+    width: 500px;
+    }
+
+.general {
+    display: inline-flex;
+}
+
+.tabs {
+    background-color: brown;
+    height: 500px;
+}
+
+.viewer {
+    background-color: aqua;
+    height: 500px;
+}
+
+.score-general {
+    display: block;
+    text-align:center; 
+    font-family: "Tahoma";
+}
+
+.env-score-title {
+    color: #92d050;
+    font-size: 34px; 
+    font-weight: 300; 
+    padding-top: 50px;
+}
+
+.env-score-1 {
+    color: #92d050;
+    font-size: 50px; 
+    font-weight: 600;
+    padding-top: 50px;
+}
+.env-score-2 {
+    color: #92d050;
+    font-size: 25px;
+    padding-top: 15px;
+}
+
+.score-details {
+    position: relative;
+    top: -140px;
+}
+
+.logo {
+    width: 15px;
+    height: 15px;
+    border-radius: 90px;
+}
+
+td {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 12px;
+}
+
+.soc-score-title {
+    color: #00ccff;
+    font-size: 34px; 
+    font-weight: 300; 
+    padding-top: 50px;
+}
+
+.soc-score-1 {
+    color: #00ccff;
+    font-size: 50px; 
+    font-weight: 600;
+    padding-top: 50px;
+}
+
+.soc-score-2{
+    color: #00ccff;
+    font-size: 25px;
+    padding-top: 15px;
+}
+
+.env-score{
+    position: relative;
+    top: -190px;
+}
+
+.progress-ring {
+  
+}
+
+.progress-ring__circle {
+  transition: 0.35s stroke-dashoffset;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.progress-ring__soccircle {
+    transition: 0.35s stroke-dashoffset;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+.detailsButton {
+    position: relative;
+    top: -110px;
+    background-color: #111;
+    color: white;
+    border-radius: 90px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.detailsButton:hover {
+    cursor: pointer;
+}
+
+.detailsSocialButton {
+    position: relative;
+    bottom: 0px;
+    background-color: #111;
+    color: white;
+    border-radius: 90px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.detailsSocialButton:hover {
+    cursor: pointer;
+}
+
+.E-value {
+    display: "none";
+}
+
+@media only screen and (max-height: 600px) {
+    .env-score-title {font-size: 25px; font-weight: 250; padding-top: 15px;}
+    .env-score-1 {font-size: 40px;font-weight: 400;}
+    .env-score-2 {font-size: 20px;font-weight: 200;}
+
+    .progress-ring {
+        display: none;
+    }
+    .progress-ring__circle {
+        display: none;
+    }
+    .env-score{
+        position: relative;
+        top: -25px;
+    }
+    .env-score-1
+    {
+        position: relative;
+        top: 0px;
+    }
+    .env-score-2
+    {
+        position: relative;
+        top: -10px;
+    } 
+    .detailsButton {
+        position: relative;
+        top: -10px;
+    }
+    .score-details {
+        position: relative;
+        top: -20px;
+    }
+
+    .soc-score-title {font-size: 25px; font-weight: 250; padding-top: 15px;}
+    .soc-score-1 {font-size: 40px;font-weight: 400;}
+    .soc-score-2 {font-size: 20px;font-weight: 200;}
+
+    .progress-ring {
+        display: none;
+    }
+    .progress-ring__soccircle {
+        display: none;
+    }
+    .soc-score{
+        position: relative;
+        top: -25px;
+    }
+    .soc-score-1
+    {
+        position: relative;
+        top: 0px;
+    }
+    .soc-score-2
+    {
+        position: relative;
+        top: -10px;
+    } 
+    .detailsSocialButton {
+        position: relative;
+        top: -10px;
+    }
+    .score-details {
+        position: relative;
+        top: -20px;
+    }
+} 
